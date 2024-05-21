@@ -1,5 +1,6 @@
-import { findPhotoByRequst } from './js/pixabay-api.js';
+// import { findPhotoByRequst } from './js/pixabay-api.js';
 import { createGalleryItemMarcup } from './js/render-functions.js';
+import { getPictures } from './js/pixabay-api.js';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -26,30 +27,32 @@ function onSearchFormSubmit(event) {
       });
     }
 
-  loaderEl.classList.remove('is-hidden');
+  // loaderEl.classList.remove('is-hidden');
 
-  findPhotoByRequst(searchReqest)
-  .then(imagesData => {
-      if (imagesData.total === 0) {
-        iziToast.error({
-          message:
-            'Sorry, there are no images matching your search query. Please try again!',
-          position: 'topRight',
-          color: 'red',
-        });
-      }
+  // findPhotoByRequst(searchReqest)
+  // .then(imagesData => {
+  //     if (imagesData.total === 0) {
+  //       iziToast.error({
+  //         message:
+  //           'Sorry, there are no images matching your search query. Please try again!',
+  //         position: 'topRight',
+  //         color: 'red',
+  //       });
+  //     }
 
-      galleryEl.innerHTML = createGalleryItemMarcup(imagesData.hits);
-      new SimpleLightbox('.js-gallery a', {
-        captionsData: 'alt',
-        captionDelay: '250',
-      });
-    })
-    .catch(error => console.log(error))
-    .finally(() =>  {
-      event.target.reset();
-      loaderEl.classList.add('is-hidden');
-    });
+
+  //     galleryEl.innerHTML = createGalleryItemMarcup(imagesData.hits);
+  //     new SimpleLightbox('.js-gallery a', {
+  //       captionsData: 'alt',
+  //       captionDelay: '250',
+  //     });
+  //   })
+  //   .catch(error => console.log(error))
+  //   .finally(() =>  {
+  //     event.target.reset();
+  //     loaderEl.classList.add('is-hidden');
+  //   });
+  getPictures(searchReqest);
 }
 
 searchFormEl.addEventListener('submit', onSearchFormSubmit);
