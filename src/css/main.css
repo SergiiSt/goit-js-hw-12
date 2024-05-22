@@ -56,16 +56,17 @@ li {
 }
 
 .loader {
+  margin-top: 15px;
   width: 48px;
   height: 48px;
   border-radius: 50%;
   display: inline-block;
   position: relative;
   border: 3px solid;
-  border-color: #0ad63a #0ad63a transparent;
+  border-color: blue blue transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  left: 44.5%;
+  left: 48.5%;
 }
 
 .loader::after {
@@ -78,16 +79,12 @@ li {
   bottom: 0;
   margin: auto;
   border: 3px solid;
-  border-color: transparent #ff3d00 #ff3d00;
+  border-color: transparent #6c8cff #6c8cff;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   animation: rotationBack 0.5s linear infinite;
   transform-origin: center center;
-}
-
-.is-hidden {
-  display: none;
 }
 
 @keyframes rotation {
@@ -135,4 +132,28 @@ ul {
   list-style: none;
   padding-left: 20px;
   padding-right: 25px;
+}
+
+.load-btn {
+  display: block;
+  width: 91px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  font-size: 16px;
+}
+
+.load-btn:hover {
+  background-color: #6c8cff;
+}
+
+.is-hidden {
+  display: none;
 }
