@@ -94,11 +94,12 @@ const onLoadPress = async event => {
     if (picPage < totalPages) {
       loadMoreBtnEl.classList.remove('is-hidden');
     } else {
+      loadMoreBtnEl.classList.add('is-hidden');
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
         position: 'topRight',
       });
-       loadMoreBtnEl.removeEventListener('click', onLoadPress);
+      loadMoreBtnEl.removeEventListener('click', onLoadPress);
       return;
     }
   } catch (error) {
